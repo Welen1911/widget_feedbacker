@@ -1,4 +1,10 @@
 <template>
+  <h1 class="text-3xl font-bold underline">
+    Widget!
+  </h1>
+</template>
+
+<!-- <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
 </template>
@@ -24,4 +30,4 @@ export default defineComponent({
   color: #2c3e50;
   margin-top: 60px;
 }
-</style>
+</style> -->
