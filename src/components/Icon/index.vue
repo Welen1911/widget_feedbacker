@@ -3,13 +3,17 @@ import Copy from './Copy.vue';
 import Loading from './Loading.vue';
 import ChevronDown from './ChevronDown.vue';
 import Chat from './Chat.vue';
+import Close from './Close.vue';
+import ArroRight from './ArroRight.vue';
 
 export default {
    components: {
     Loading,
     Copy,
     ChevronDown,
-    Chat
+    Chat,
+    Close,
+    ArroRight
    },
     props: {
         name: {

@@ -3,6 +3,7 @@ import { computed, ComputedRef, SetupContext } from 'vue';
 import { brand } from '../../../palette';
 import colors from 'tailwindcss/colors';
 import useStore from '@/hooks/store';
+import Icon from '@/components/Icon/index.vue';
 
 const store = useStore();
 
@@ -29,7 +30,32 @@ const canShowAdditionalControlAndInfor = computed<boolean>(() =>
 </script>
 <template>
     <div class="box animate__animated animate__fadeInUp animate__faster">
+        <div :class="{
+            'justify-between': canShowAdditionalControlAndInfor,
+            'justify-end': !canShowAdditionalControlAndInfor,
 
+        }" class="relative w-full flex">
+            <button v-if="canShowAdditionalControlAndInfor" @click="() => console.log" :disabled="canGoback" :class="{
+                'invisible': canGoback
+            }" class="text-xl text-gray-800 focus-outline-none">
+                <Icon name="ArrowRight" :color="colors.gray['800']" />
+            </button>
+            <p v-if="canShowAdditionalControlAndInfor" class="text-xl font-black text-center text-brand-main">
+                {{ label }}
+            </p>
+
+            <button @click="$emit('close-box')" class="text-xl text-gray-800 focus:outline-none">
+                <Icon size="14" name="Close" :color="colors.gray['800']" />
+            </button>
+        </div>
+        Wizard
+        <div class="text-gray-800 text-sm flex" v-if="canShowAdditionalControlAndInfor">
+            <Icon name="chat" class="mr-1" :color="colors.gray['800']" />
+            Widget by
+            <span class="ml-1 font-bold">
+                Feedbacker
+            </span>
+        </div>
     </div>
 </template>
 
