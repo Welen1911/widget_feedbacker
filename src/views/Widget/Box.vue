@@ -4,8 +4,12 @@ import { brand } from '../../../palette';
 import colors from 'tailwindcss/colors';
 import useStore from '@/hooks/store';
 import Icon from '@/components/Icon/index.vue';
+import Wizard from '@/components/Wizard/index.vue';
+import useNavigation from '@/hooks/navigation';
 
 const store = useStore();
+
+const { back } = useNavigation();
 
 const label = computed<string>(() => {
     if (store.feedbackType === 'ISSUE') {
@@ -35,7 +39,7 @@ const canShowAdditionalControlAndInfor = computed<boolean>(() =>
             'justify-end': !canShowAdditionalControlAndInfor,
 
         }" class="relative w-full flex">
-            <button v-if="canShowAdditionalControlAndInfor" @click="() => console.log" :disabled="canGoback" :class="{
+            <button v-if="canShowAdditionalControlAndInfor" @click="back" :disabled="canGoback" :class="{
                 'invisible': canGoback
             }" class="text-xl text-gray-800 focus-outline-none">
                 <Icon name="ArrowRight" :color="colors.gray['800']" />
@@ -48,7 +52,7 @@ const canShowAdditionalControlAndInfor = computed<boolean>(() =>
                 <Icon size="14" name="Close" :color="colors.gray['800']" />
             </button>
         </div>
-        Wizard
+        <Wizard />
         <div class="text-gray-800 text-sm flex" v-if="canShowAdditionalControlAndInfor">
             <Icon name="chat" class="mr-1" :color="colors.gray['800']" />
             Widget by
