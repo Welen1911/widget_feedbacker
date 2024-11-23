@@ -9,6 +9,7 @@ const { next } = useNavigation();
 
 const handleSelectFeedbackType = (type: string): void => {
     setFeedbackType(type);
+    console.log(store.currentComponent);
 }
 </script>
 

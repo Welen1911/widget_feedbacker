@@ -4,7 +4,7 @@ import Loading from './Loading.vue';
 import ChevronDown from './ChevronDown.vue';
 import Chat from './Chat.vue';
 import Close from './Close.vue';
-import ArroRight from './ArroRight.vue';
+import ArrowRight from './ArrowRight.vue';
 
 export default {
    components: {
@@ -13,7 +13,7 @@ export default {
     ChevronDown,
     Chat,
     Close,
-    ArroRight
+    ArrowRight
    },
     props: {
         name: {

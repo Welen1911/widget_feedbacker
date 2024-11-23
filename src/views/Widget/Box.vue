@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, ComputedRef, SetupContext } from 'vue';
-import { brand } from '../../../palette';
+import { computed } from 'vue';
 import colors from 'tailwindcss/colors';
 import useStore from '@/hooks/store';
 import Icon from '@/components/Icon/index.vue';
 import Wizard from '@/components/Wizard/index.vue';
 import useNavigation from '@/hooks/navigation';
+
 
 const store = useStore();
 
@@ -24,11 +24,11 @@ const label = computed<string>(() => {
 });
 
 const canGoback = computed<boolean>(() =>
-    store.currentComponent === 'SelectFeedbackType'
+    store.currentComponent.__name === "SelectFeedbackType"
 );
 
 const canShowAdditionalControlAndInfor = computed<boolean>(() =>
-    store.currentComponent != 'Success' && store.currentComponent != 'Error'
+    store.currentComponent.__name != "Success" && store.currentComponent.__name != "Error"
 );
 
 </script>
@@ -42,7 +42,7 @@ const canShowAdditionalControlAndInfor = computed<boolean>(() =>
             <button v-if="canShowAdditionalControlAndInfor" @click="back" :disabled="canGoback" :class="{
                 'invisible': canGoback
             }" class="text-xl text-gray-800 focus-outline-none">
-                <Icon name="ArrowRight" :color="colors.gray['800']" />
+                <Icon name="ArrowRight" :color="colors.gray['800']" size="14" />
             </button>
             <p v-if="canShowAdditionalControlAndInfor" class="text-xl font-black text-center text-brand-main">
                 {{ label }}
