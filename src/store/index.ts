@@ -1,5 +1,7 @@
 import { Component, reactive, readonly } from "vue";
 import SelectFeedbackType from "@/components/Wizard/SelectFeedbackType.vue";
+import Success from "@/components/Wizard/Success.vue";
+import Error from "@/components/Wizard/Error.vue";
 
 export type StoreState = {
   currentComponent: Component;
@@ -11,7 +13,9 @@ export type StoreState = {
 };
 
 const initialState: StoreState = {
-  currentComponent: SelectFeedbackType,
+//   currentComponent: SelectFeedbackType,
+//   currentComponent: Success,
+  currentComponent: Error,
   message: "",
   feedbackType: "",
   fingerprint: "",

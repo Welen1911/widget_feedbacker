@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { reactive, computed } from 'vue';
-import useStore from '../../store/index';
+import icon from '../Icon/index.vue';
+import useStore from '../../hooks/store';
 import useNavigation from '@/hooks/navigation';
+import services from '@/services';
 
-// const store = useStore();
+const store = useStore();
 
-const {setErrorState} = useNavigation();
+const {setErrorState, setSuccessState} = useNavigation();
 
 type State = {
     feedback: string;
@@ -30,8 +32,29 @@ const handleError = (error: Error) => {
     setErrorState();
 }
 
-const submitAFeedback = () => {
-    console.log('Enviando....');
+const submitAFeedback = async (): Promise<void> => {
+    try {
+
+        const response = await services.feedbacks.create({
+             type: store.feedbackType,
+             text: store.message,
+             page:store.currentPage,
+             apiKey: store.apiKey,
+             device: window.navigator.userAgent,
+             fingerprint: store.fingerprint
+        });
+
+        if (!response.errors) {
+            setSuccessState();
+        } else {
+            setErrorState();
+        }
+        
+        state.isLoading = false;
+
+    } catch (error) {
+        handleError(error);
+    }
 }
 
 </script>

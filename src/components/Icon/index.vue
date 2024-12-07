@@ -5,6 +5,8 @@ import ChevronDown from './ChevronDown.vue';
 import Chat from './Chat.vue';
 import Close from './Close.vue';
 import ArrowRight from './ArrowRight.vue';
+import Checked from './Checked.vue';
+import Error from './Error.vue';
 
 export default {
    components: {
@@ -13,7 +15,9 @@ export default {
     ChevronDown,
     Chat,
     Close,
-    ArrowRight
+    ArrowRight,
+    Checked,
+    Error
    },
     props: {
         name: {
