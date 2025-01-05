@@ -10,7 +10,7 @@ const init = (apikey) => {
     const config = { method: "GET" };
 
     const response = await fetch(
-      `https://feed-backer-backend.vercel.app/api/api/apikey/exists/${apikey}`,
+      `https://feed-backer-backend.vercel.app/api/api/apikey/exists?apikey=${apikey}`,
       config
     );
 
