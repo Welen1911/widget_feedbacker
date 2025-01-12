@@ -1,5 +1,7 @@
-export default httpClient => ({
-    create: async (data) => {
+import { Axios } from "axios";
+
+export default (httpClient: Axios) => ({
+    create: async (data: object) => {
         // const response = await httpClient.get('/users/me');
 
         return {

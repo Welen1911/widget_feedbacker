@@ -2,7 +2,7 @@
 import StandBy from './StandBy.vue';
 import Box from './Box.vue';
 import { Component, onMounted, reactive } from 'vue';
-import useIframeControl from '@/hooks/Iframe';
+import useIframeControl from '@/hooks/iframe';
 
 type State = {
     component: Component

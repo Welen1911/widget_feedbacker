@@ -24,16 +24,16 @@ export default function useNavigation(): Navigation {
   }
 
   function next(): void {
-    if (store.currentComponent.__name === "SelectFeedbackType") {
+    if ((store.currentComponent as any).__name === "SelectFeedbackType") {
       setCurrentComponent(WriteFeedback);
-      console.log(store.currentComponent.__name);
+      console.log((store.currentComponent as any).__name);
     }
   }
 
   function back(): void {
     setCurrentComponent(SelectFeedbackType);
     setFeedbackType("");
-    if (store.currentComponent.__name === "WriteFeedback") {
+    if ((store.currentComponent as any).__name === "WriteFeedback") {
       setCurrentComponent(SelectFeedbackType);
       setFeedbackType("");
     }
